@@ -25,14 +25,14 @@ data:
 
 
 
-url: https://10.1.1.12/mgmt/tm/asm/tasks/apply-policy/
+url: https://10.1.1.12/mgmt/tm/asm/tasks/import-policy/
 method: POST
 headers:
     Content-Type: application/json
     Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
 data:
-    responsePageReference:
-        link:
+    fileReference:
+        link: https://raw.githubusercontent.com/de1chk1nd/TrainingExamples/main/DeclarativeWAF/App1%20-%20WAF/responsepage.txt
     policy:
         fullPath: /Common/App1-WAFpolicy
 
