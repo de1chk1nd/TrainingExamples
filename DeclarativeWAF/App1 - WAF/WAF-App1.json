@@ -3,7 +3,7 @@
         "name": "App1-WAFpolicy",
         "description": "TemplateForWAF",
         "template": {
-            "name": "POLICY_TEMPLATE_FUNDAMENTAL"
+            "name": "POLICY_TEMPLATE_RAPID_DEPLOYMENT"
         },
         "enforcementMode": "blocking",
         "server-technologies": [
