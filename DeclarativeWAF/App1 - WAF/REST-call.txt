@@ -1,5 +1,5 @@
-PULL:
-=====
+PULL Policy:
+============
 
 url: https://192.168.178.205/mgmt/tm/asm/tasks/import-policy/
 method: POST
@@ -11,8 +11,8 @@ data:
         link: https://raw.githubusercontent.com/de1chk1nd/TrainingExamples/main/DeclarativeWAF/App1%20-%20WAF/WAF-App1.json
 
 
-APPLY:
-======
+APPLY Policy:
+=============
 
 url: https://192.168.178.205/mgmt/tm/asm/tasks/apply-policy/
 method: POST
@@ -24,6 +24,31 @@ data:
         fullPath: /Common/App1-WAFpolicy
 
 
+GET PolicyID
+============
+
+url: https://192.168.178.205/mgmt/tm/asm/tasks/import-policy/
+method: GET
+headers:
+    Content-Type: application/json
+    Content-Range: 0-601/601
+    Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
+
+
+Assign Policy to VS
+===================
+url: https://192.168.178.205//mgmt/tm/asm/policies/8he7ubeuRJNYMYHfQLHK-w
+method: PATCH
+headers:
+    Content-Type: application/json
+    Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
+data:
+    virtualServers: ["/Common/vs_imp_80"]
+
+
+Modify Policy:
+==============
+https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-declarative-security-policy/declarative-policy-entity-examples.html#concept-8664
 
 url: https://192.168.178.205/mgmt/tm/asm/tasks/import-policy/
 method: POST
@@ -37,6 +62,9 @@ data:
         fullPath: /Common/App1-WAFpolicy
 
 
+Apply Policy:
+=============
+
 url: https://192.168.178.205/mgmt/tm/asm/tasks/apply-policy/
 method: POST
 headers:
@@ -45,3 +73,27 @@ headers:
 data:
     policy:
         fullPath: /Common/App1-WAFpolicy
+
+
+Collect Suggestions:
+====================
+
+url: https://192.168.178.205/mgmt/tm/asm/tasks/export-suggestions
+method: POST
+headers:
+    Content-Type: application/json
+    Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
+data:
+    inline: true
+    policyReference:
+        link: https://192.168.178.205/mgmt/tm/asm/policies/8he7ubeuRJNYMYHfQLHK-w/
+
+
+Get Suggestions:
+================
+
+url: https://192.168.178.205/mgmt/tm/asm/tasks/export-suggestions
+method: GET
+headers:
+    Content-Type: application/json
+    Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==

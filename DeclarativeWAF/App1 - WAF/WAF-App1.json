@@ -23,5 +23,6 @@
         "policy-builder": {
             "learnOnlyFromNonBotTraffic": false
         }
-    }
+    },
+    "modifications": []
 }
