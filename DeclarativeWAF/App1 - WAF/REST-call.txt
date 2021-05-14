@@ -25,3 +25,14 @@ data:
 
 
 
+url: https://10.1.1.12/mgmt/tm/asm/tasks/apply-policy/
+method: POST
+headers:
+    Content-Type: application/json
+    Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
+data:
+    responsePageReference:
+        link:
+    policy:
+        fullPath: /Common/App1-WAFpolicy
+
