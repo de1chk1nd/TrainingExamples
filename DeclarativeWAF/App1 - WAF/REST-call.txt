@@ -1,13 +1,6 @@
-PUSH:
-curl --location --request POST 'https://10.1.1.12/mgmt/tm/asm/file-transfer/uploads/policy-api.json' \
---header 'Content-Range: 0-661/662' \
---header 'Authorization: Basic YWRtaW46YWRtaW4=' \
---header 'Content-Type: application/json' \
---data-binary '@/C:/Users/user/Desktop/policy-api.json'
-
-
-
 PULL:
+=====
+
 url: https://192.168.178.205/mgmt/tm/asm/tasks/import-policy/
 method: POST
 headers:
@@ -15,18 +8,20 @@ headers:
     Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
 data:
     fileReference:
-        link: http://10.1.20.4/root/as3-waf/-/raw/master/policy-api.json
+        link: https://raw.githubusercontent.com/de1chk1nd/TrainingExamples/main/DeclarativeWAF/App1%20-%20WAF/WAF-App1.json
+
+
+APPLY:
+======
+
+url: https://10.1.1.12/mgmt/tm/asm/tasks/apply-policy/
+method: POST
+headers:
+    Content-Type: application/json
+    Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
+data:
+    policy:
+        fullPath: /Common/App1-WAFpolicy
 
 
 
-
-
-
-curl --location --request POST 'https://10.1.1.12/mgmt/tm/asm/tasks/import-policy/' \
---header 'Content-Type: application/json' \
---header 'Authorization: Basic YWRtaW46YWRtaW4=' \
---data-raw '{
-    "fileReference": { 
-        "link": "http://10.1.20.4/root/as3-waf/-/raw/master/policy-api.json"
-    }
-}'

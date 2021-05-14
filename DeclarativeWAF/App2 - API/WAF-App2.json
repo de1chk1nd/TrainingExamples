@@ -1,6 +1,6 @@
 {
     "policy": {
-        "name": "tmpl-API",
+        "name": "App-APIpolicy",
         "description": "TemplateForAPI",
         "template": {
             "name": "POLICY_TEMPLATE_API_SECURITY"
@@ -25,7 +25,7 @@
         },
         "open-api-files": [
             {
-            "link": "https://api.swaggerhub.com/apis/F5EMEASSA/Arcadia-OAS3/1.0.0-oas3"
+            "link": "https://app.swaggerhub.com/apis/F5EMEASSA/Arcadia-OAS3/2.0.1-schema"
             }
         ]
     }
