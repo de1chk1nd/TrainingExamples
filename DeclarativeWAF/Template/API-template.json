@@ -1,0 +1,32 @@
+{
+    "policy": {
+        "name": "tmpl-API",
+        "description": "TemplateForAPI",
+        "template": {
+            "name": "POLICY_TEMPLATE_API_SECURITY"
+        },
+        "enforcementMode": "blocking",
+        "server-technologies": [
+            {
+                "serverTechnologyName": "MySQL"
+            },
+            {
+                "serverTechnologyName": "Unix/Linux"
+            },
+            {
+                "serverTechnologyName": "MongoDB"
+            }
+        ],
+        "signature-settings": {
+            "signatureStaging": false
+        },
+        "policy-builder": {
+            "learnOnlyFromNonBotTraffic": false
+        },
+        "open-api-files": [
+            {
+            "link": "https://api.swaggerhub.com/apis/F5EMEASSA/Arcadia-OAS3/1.0.0-oas3"
+            }
+        ]
+    }
+}

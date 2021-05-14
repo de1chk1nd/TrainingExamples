@@ -1,0 +1,27 @@
+{ 
+    "policy": {
+        "name": "tmpl-WAF",
+        "description": "TemplateForWAF",
+        "template": {
+            "name": "POLICY_TEMPLATE_FUNDAMENTAL"
+        },
+        "enforcementMode": "blocking",
+        "server-technologies": [
+            {
+                "serverTechnologyName": "MySQL"
+            },
+            {
+                "serverTechnologyName": "Unix/Linux"
+            },
+            {
+                "serverTechnologyName": "MongoDB"
+            }
+        ],
+        "signature-settings": {
+            "signatureStaging": false
+        },
+        "policy-builder": {
+            "learnOnlyFromNonBotTraffic": false
+        }
+    }
+}
