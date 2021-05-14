@@ -1,6 +1,6 @@
 { 
     "policy": {
-        "name": "App1-WAFpolicy",
+        "name": "aWAF_finalApp",
         "description": "TemplateForWAF",
         "template": {
             "name": "POLICY_TEMPLATE_RAPID_DEPLOYMENT"
