@@ -1,6 +1,6 @@
 { 
     "policy": {
-        "name": "aWAF_LastCall",
+        "name": "aWAF_FinalApp-1",
         "description": "TemplateForWAF",
         "template": {
             "name": "POLICY_TEMPLATE_RAPID_DEPLOYMENT"
