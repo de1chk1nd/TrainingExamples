@@ -1,9 +1,0 @@
-PULL:
-url: https://192.168.178.205/mgmt/tm/asm/tasks/import-policy/
-method: POST
-headers:
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
-data:
-    fileReference:
-        link: https://raw.githubusercontent.com/de1chk1nd/TrainingExamples/main/DeclarativeWAF/App1%20-%20WAF/WAF-App1.json
