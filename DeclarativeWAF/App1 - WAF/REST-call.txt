@@ -1,49 +1,4 @@
-PULL Policy:
-============
 
-url: https://192.168.178.205/mgmt/tm/asm/tasks/import-policy/
-method: POST
-headers:
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
-data:
-    fileReference:
-        link: https://raw.githubusercontent.com/de1chk1nd/TrainingExamples/main/DeclarativeWAF/App1%20-%20WAF/WAF-App1.json
-
-
-APPLY Policy:
-=============
-
-url: https://192.168.178.205/mgmt/tm/asm/tasks/apply-policy/
-method: POST
-headers:
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
-data:
-    policy:
-        fullPath: /Common/App1-WAFpolicy
-
-
-GET PolicyID
-============
-
-url: https://192.168.178.205/mgmt/tm/asm/tasks/import-policy/
-method: GET
-headers:
-    Content-Type: application/json
-    Content-Range: 0-601/601
-    Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
-
-
-Assign Policy to VS
-===================
-url: https://192.168.178.205//mgmt/tm/asm/policies/8he7ubeuRJNYMYHfQLHK-w
-method: PATCH
-headers:
-    Content-Type: application/json
-    Authorization: Basic YWRtaW46ZjV0d2lzdGVyIQ==
-data:
-    virtualServers: ["/Common/vs_imp_80"]
 
 
 Modify Policy:
