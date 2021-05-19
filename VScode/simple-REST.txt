@@ -1,0 +1,37 @@
+URL plain
+========
+/mgmt/tm/sys/clock
+
+URL YAML
+========
+url: /mgmt/tm/sys/clock
+
+URL JSON
+========
+{
+    "url": "/mgmt/tm/sys/clock"
+}
+
+AuthUser
+=======
+url: /mgmt/shared/authn/login
+method: POST
+body:
+    username: admin
+    password: password1!
+
+
+Save Config (convert)
+=====================
+url: /mgmt/tm/sys/config
+method: POST
+body:
+    command: save
+
+
+
++++ OUTSIDE CONNECTED F5
+
+https://api.chucknorris.io/jokes/random
+
+url: https://api.chucknorris.io/jokes/random
