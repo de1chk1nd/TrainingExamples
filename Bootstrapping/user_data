@@ -1,0 +1,27 @@
+#cloud-config
+chpasswd:
+  list: |
+    root:password1!
+    admin:password1!
+  expire: False
+tmos_static_mgmt:
+  enabled: true
+  ip: 192.168.178.205
+  netmask: 255.255.255.0
+  gw: 192.168.178.1
+  nameservers:
+    - 8.8.4.4
+    - 8.8.8.8
+  hostname: ano.bigip.local
+  icontrollx_trusted_sources: false
+  icontrollx_package_urls:
+    - https://github.com/F5Networks/f5-declarative-onboarding/releases/download/v1.20.0/f5-declarative-onboarding-1.20.0-2.noarch.rpm
+  post_onboard_enabled: true
+  post_onboard_commands:
+    - tmsh modify sys db ui.advisory.color { value orange }
+    - tmsh modify sys db ui.advisory.text { value  'Onboarded for AnO Demo' }
+    - tmsh modify sys db ui.advisory.enabled { value true }
+    - tmsh modify sys db provision.extramb { value 500 }
+    - tmsh modify sys global-settings gui-setup disabled
+    - tmsh modify sys db tm.tcplargereceiveoffload value disable
+    - tmsh modify sys db tm.tcpsegmentationoffload value disable
