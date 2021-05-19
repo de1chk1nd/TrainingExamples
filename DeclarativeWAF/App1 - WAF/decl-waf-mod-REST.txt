@@ -6,7 +6,7 @@ url: https://192.168.178.205/mgmt/tm/asm/tasks/import-policy/
 method: POST
 headers:
     Content-Type: application/json
-    Authorization: Basic aaa
+    Authorization: Basic <<<REPLACE WITH AUTH HEADER - OR USE AUTH TOKEN>>>
 data:
     fileReference:
         link: https://raw.githubusercontent.com/de1chk1nd/TrainingExamples/main/DeclarativeWAF/App1%20-%20WAF/WAF-App1.json
@@ -21,7 +21,7 @@ url: https://192.168.178.205/mgmt/tm/asm/tasks/apply-policy/
 method: POST
 headers:
     Content-Type: application/json
-    Authorization: Basic aaa
+    Authorization: Basic <<<REPLACE WITH AUTH HEADER - OR USE AUTH TOKEN>>>
 data:
     policy:
         fullPath: /Common/App1-WAFpolicy
