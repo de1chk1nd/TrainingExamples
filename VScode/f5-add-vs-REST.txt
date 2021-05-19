@@ -1,0 +1,48 @@
+url: https://192.168.178.205/mgmt/tm/ltm/monitor/http
+method: POST
+headers:
+    Content-Type: application/json
+    Authorization: Basic <<<REPLACE WITH AUTH HEADER - OR USE AUTH TOKEN>>>
+data:
+    name: mon_imp_http
+    send: "GET / HTTP/1.0\r\n\r\n"
+    recv: ''
+
+
+url: https://192.168.178.205/mgmt/tm/ltm/pool
+method: POST
+headers:
+    Content-Type: application/json
+    Authorization: Basic <<<REPLACE WITH AUTH HEADER - OR USE AUTH TOKEN>>>
+data:
+    name: p_imp
+    monitor: /Common/mon_imp_http
+    members:
+        - 34.199.75.4:80
+        - 54.166.163.67:80
+        - 34.231.30.52:80
+        - 54.91.118.50:80
+
+
+url: https://192.168.178.205/mgmt/tm/ltm/virtual
+method: POST
+headers:
+    Content-Type: application/json
+    Authorization: Basic <<<REPLACE WITH AUTH HEADER - OR USE AUTH TOKEN>>>
+data:
+    name: vs_imp_80
+    destination: 10.1.10.150:80
+    ipProtocol: tcp
+    pool: p_imp
+    profiles: http
+    sourceAddressTranslation:
+        type: automap
+
+
+url: https://192.168.178.205/mgmt/tm/sys/config
+method: POST
+headers:
+    Content-Type: application/json
+    Authorization: Basic <<<REPLACE WITH AUTH HEADER - OR USE AUTH TOKEN>>>
+data:
+    command: save
