@@ -1,0 +1,27 @@
+Collect Suggestions:
+====================
+
+REPLACE "8he7ubeuRJNYMYHfQLHK-w" with real policy ID. To get policy ID:
+  https://devcentral.f5.com/s/articles/Advanced-WAF-v16-0-Declarative-API
+  > 7. FIND the Policy-ID
+
+
+url: https://192.168.178.205/mgmt/tm/asm/tasks/export-suggestions
+method: POST
+headers:
+    Content-Type: application/json
+    Authorization: Basic <<<REPLACE WITH AUTH HEADER - OR USE AUTH TOKEN>>>
+data:
+    inline: true
+    policyReference:
+        link: https://192.168.178.205/mgmt/tm/asm/policies/8he7ubeuRJNYMYHfQLHK-w/
+
+
+Get Suggestions:
+================
+
+url: https://192.168.178.205/mgmt/tm/asm/tasks/export-suggestions
+method: GET
+headers:
+    Content-Type: application/json
+    Authorization: Basic <<<REPLACE WITH AUTH HEADER - OR USE AUTH TOKEN>>>
