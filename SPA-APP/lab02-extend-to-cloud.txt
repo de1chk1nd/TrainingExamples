@@ -1,0 +1,129 @@
+
+PREREQUISIT: lab01
+--------------------------------
+
+http://brews.edge.de1chk1nd.de
+
+=====================================================================================================
+=====================================================================================================
+
+1: Create MongoDB Origin Pool
+
+Origin Pool Name                            brews-mongodb
+Select Type of Origin Server                IP address of Origin Server on given Sites
+IP address                                  192.168.178.211
+Site                                        de1chk1nd-office
+Select Network on the site                  Outside Network
+Port                                        27017
+
+HC                                          brews-mongodb
+
+2: Create MongoDB TCP Load Balancer
+
+Name                                        brews-mongodb
+Domain                                      de1chk1nd-mongodb.brews.local
+Listen Port                                 27017
+Origin Pools                                brews-mongodb
+Where to Advertise the VIP                  Advertise Custom
+    Select Where to Advertise               Site
+    Site Network                            Outside Network
+    Site Reference                          de1chk1nd-office
+
+    Select Where to Advertise               Site
+    Site Network                            Outside Network
+    Site Reference                          de1chk1nd-az
+
+
+3: Create Virtual Site
+
+Name                                        de1chk1nd-brews
+Site Type                                   CE
+Site Selector                               Expression Key
+                                                > ves.io/app | brews
+
+4: Tag Azure|office Site
+
+Site-List                                   de1chk1nd-az & (optional) de1chk1nd-office
+
+
+5: Create the Container Registry
+
+Name                                        de1chk1nd-f5demos
+Server FQDN                                 registry.f5demos.com
+User Name                                   labuser
+Password                                    f5demosPass! [BLINDFOLD]
+
+
+3: Create Virtual K8s Workload for the Single-page App
+
+Name                                        brews-spa
+Select Type of Workload                     Service
+
+    Name                                        brews-spa
+    Image Name                                  registry.f5demos.com/spa
+    Select Container Registry                   Private Registry
+    Private Registry                            de1chk1nd-f5demos
+
+    Where to Deploy the workload                Customer Virtual Sites
+                                                    > de1chk1nd-brews
+
+    Advertise Option                            Advertise In Cluster
+                                                    > Port                  8081                          
+                                                    > Show Advance Fields   Toggle On
+                                                    > Port Information      Different than Port
+                                                    > Different than Port   80
+
+
+4: Create Virtual K8s Workload for the API
+
+Name                                        brews-api
+Select Type of Workload                     Service
+
+    Name                                        brews-api
+    Image Name                                  registry.f5demos.com/api
+    Select Container Registry                   Private Registry
+    Private Registry                            de1chk1nd-f5demos
+
+    Configuration                               Add item
+        Select Configuration Parameter Type     Environment Variable
+        Name                                    MONGO_URL
+        Value                                   mongodb.brews.de1chk1nd.local
+
+    Where to Deploy the workload                Customer Virtual Sites
+                                                    > de1chk1nd-brews
+
+    Advertise Option                            Advertise In Cluster
+                                                    > Port                  8000
+
+
+5: Add SPA Origin Pool to HTTP LB
+
+Edit                                            brews-spa-pool
+                                                    > Add Item
+
+Select Type of Origin Server                    K8s Service Name of Origin Server on given Sites
+    Service Name                                    brews-spa.m-petersen
+
+    Select Site or Virtual Site                     Virtual Site
+    Virtual Site                                    de1chk1nd-brews
+    Select Network on the site                      vK8s Networks on Site
+
+
+6: Add API Origin Pool to HTTP LB
+
+Edit                                            brews-api-pool
+                                                    > Add Item
+
+Select Type of Origin Server                    K8s Service Name of Origin Server on given Sites
+    Service Name                                    brews-api.m-petersen
+
+    Select Site or Virtual Site                     Virtual Site
+    Virtual Site                                    de1chk1nd-brews
+    Select Network on the site                      vK8s Networks on Site
+
+
+3: Check HTTP LB Origin Servers
+
+Virtual Hosts -> HTTP Load Balancers
+
+
