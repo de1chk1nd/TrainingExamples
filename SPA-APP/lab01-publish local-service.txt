@@ -1,0 +1,83 @@
+
+PREREQUISIT: App deployed local:
+--------------------------------
+
+!!! IMPORTANT: DOCKER COMPOSE: CHANGE DNS SERVER TO 192.168.178.68 !!!
+
+CONTAINER ID   IMAGE                          COMMAND                  CREATED          STATUS          PORTS                                           NAMES
+5de8d97ff695   spa-demo-app_inventory         "docker-entrypoint.s…"   46 minutes ago   Up 46 minutes   0.0.0.0:8002->8002/tcp, :::8002->8002/tcp       inv
+3a1802bcc6a0   spa-demo-app_spa               "/docker-entrypoint.…"   46 minutes ago   Up 46 minutes   0.0.0.0:8081->80/tcp, :::8081->80/tcp           spa
+c133ec0bcd14   spa-demo-app_api               "docker-entrypoint.s…"   46 minutes ago   Up 46 minutes   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp       api
+67cbb391f24b   mongo                          "docker-entrypoint.s…"   46 minutes ago   Up 46 minutes   0.0.0.0:27017->27017/tcp, :::27017->27017/tcp   mongodb
+bdb25b2293f5   spa-demo-app_recommendations   "docker-entrypoint.s…"   46 minutes ago   Up 46 minutes   0.0.0.0:8001->8001/tcp, :::8001->8001/tcp       recs
+
+=====================================================================================================
+=====================================================================================================
+
+http://127.0.0.1:8081/stats
+
+=====================================================================================================
+=====================================================================================================
+
+1: Create SPA Origin Pool
+
+Name                                        brews-spa-pool
+Select Type of Origin Server                IP address of Origin Server on given Sites
+IP                                          192.168.178.211
+Site                                        de1chk1nd-office
+Select Network on the site                  Outside Network
+Port                                        8081
+
+HC                                          brews-spa-check
+
+###########
+###########
+
+2: Create API Origin Pool
+
+Name                                        brews-api-pool
+Select Type of Origin Server                IP address of Origin Server on given Sites
+IP                                          192.168.178.211
+Site                                        de1chk1nd-office
+Select Network on the site                  Outside Network
+Port                                        8000
+
+HC                                          brews-api-check
+
+###########
+###########
+
+3: HTTP Load Balancer Basic Configuration
+
+Name                                        brews-lb
+Domains                                     brews.edge.de1chk1nd.de
+Select type of Load Balancer                HTTP
+Automatically Manage DNS Records            Yes/Check
+
+
+3.1: Configure Default Origin Server
+
+Select Origin Pool Method                   brews-spa-pool
+
+
+3.2: Configure Routes
+
+ADD ROUTE(s)
+
+Select Type of Route                        Simple Route
+HTTP Method                                 ANY
+Path Match                                  Prefix
+Prefix                                      /api/
+>>Origin Pools                              brews-api-pool                              
+
+ADD ITEM
+
+Select Type of Route                        Simple Route
+HTTP Method                                 ANY
+Path Match                                  Prefix
+Prefix                                      /images/
+>>Origin Pools                              brews-api-pool
+
+####################################################################################################
+####################################################################################################
+####################################################################################################
