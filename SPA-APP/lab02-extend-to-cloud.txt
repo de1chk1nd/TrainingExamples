@@ -21,7 +21,7 @@ HC                                          brews-mongodb
 2: Create MongoDB TCP Load Balancer
 
 Name                                        brews-mongodb
-Domain                                      de1chk1nd-mongodb.brews.local
+Domain                                      de1chk1nd-mongodb.brews.local       <<<<< !!!!!!!!!
 Listen Port                                 27017
 Origin Pools                                brews-mongodb
 Where to Advertise the VIP                  Advertise Custom
@@ -87,7 +87,7 @@ Select Type of Workload                     Service
     Configuration                               Add item
         Select Configuration Parameter Type     Environment Variable
         Name                                    MONGO_URL
-        Value                                   mongodb.brews.de1chk1nd.local
+        Value                                   de1chk1nd-mongodb.brews.local
 
     Where to Deploy the workload                Customer Virtual Sites
                                                     > de1chk1nd-brews

@@ -50,7 +50,7 @@ HC                                          brews-api-check
 3: HTTP Load Balancer Basic Configuration
 
 Name                                        brews-lb
-Domains                                     brews.edge.de1chk1nd.de
+Domains                                     brewsN.edge.de1chk1nd.de
 Select type of Load Balancer                HTTP
 Automatically Manage DNS Records            Yes/Check
 
