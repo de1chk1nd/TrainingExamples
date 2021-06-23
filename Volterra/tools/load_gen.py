@@ -31,11 +31,11 @@ for i in range(count):
         resp_status = response.status_code
         if urls == "http://app1.edge.de1chk1nd.de/coffee": # If stement not required - just for better formating (additional tab) ... remove if/else and just use one statement
             print(urls + " with Status:\t" + str(resp_status))
-            print("User-Agent: " + str(headers.values()))
+            # print("User-Agent: " + str(headers.values()))
             print("")
         else:
             print(urls + " with Status:\t\t" + str(resp_status))
-            print("User-Agent: " + str(headers.values()))
+            # print("User-Agent: " + str(headers.values()))
             print("")
         
         time.sleep(0.5)
