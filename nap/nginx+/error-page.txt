@@ -1,6 +1,6 @@
 [
     {
-        "responseContent": "<html><head><title>Custom Reject Page</title></head><body>This is a custom blocking page, it is supposed to overwrite the default page with custom text.<br><br><img src="https://c.tenor.com/hYVsWvkpdrMAAAAC/you-didnt-say-the-magic-word-ah-ah.gif" alt="Lamp" width="32" height="32"><br><br>Your support ID is: <%TS.request.ID()%><br><br><a href='javascript:history.back();'>[Go Back]</a></body></html>",
+        "responseContent": "<html><head><title>Custom Reject Page</title></head><body>This is a custom blocking page, it is supposed to overwrite the default page with custom text.<br><br><img src="https://c.tenor.com/hYVsWvkpdrMAAAAC/you-didnt-say-the-magic-word-ah-ah.gif"><br><br>Your support ID is: <%TS.request.ID()%><br><br><a href='javascript:history.back();'>[Go Back]</a></body></html>",
         "responseHeader": "HTTP/1.1 200 OK\r\nCache-Control: no-cache\r\nPragma: no-cache\r\nConnection: close",
         "responseActionType": "custom",
         "responsePageType": "default"
