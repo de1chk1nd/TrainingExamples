@@ -5,7 +5,6 @@
         <head><title>Custom Reject Page</title></head>
         <body>
         This is a custom blocking page, it is supposed to overwrite the default page with custom text.<br><br>
-        <img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32"><br><br>
         Your support ID is: <%TS.request.ID()%><br><br><a href='javascript:history.back();'>[Go Back]</a>
         </body>
         </html>",
