@@ -15,7 +15,7 @@ headers:
     Content-Type: application/json
     Authorization: Basic <<<REPLACE WITH AUTH HEADER - OR USE AUTH TOKEN>>>
 data:
-    name: p_imp
+    name: p_namespace_X
     monitor: /Common/mon_imp_http
     members:
         - 34.199.75.4:80
