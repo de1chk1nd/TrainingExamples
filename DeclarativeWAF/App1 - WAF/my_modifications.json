@@ -1,6 +1,5 @@
 {
-    "modifications":
-     [
+    "modifications":[
                     {
                         "entityChanges": {
                             "enabled": true
