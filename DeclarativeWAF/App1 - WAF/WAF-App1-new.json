@@ -23,6 +23,14 @@
         "policy-builder": {
             "learnOnlyFromNonBotTraffic": false
         },
+        "whitelist-ips": [
+            {
+            "ipAddress": "10.0.0.1",
+            "ipMask": "255.255.255.255",
+            "trustedByPolicyBuilder": true            
+            }
+        ]
+    },      
         "response-pages": [
             {
                 "responseContent": "<html><head><title>Custom Reject Page</title></head><body>This is a custom response page; it is supposed to overwrite the default page with custom text.<br><br>Your support ID is: <%TS.request.ID()%><br><br><a href='javascript:history.back();'>[Go Back]</a></body></html>",
