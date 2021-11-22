@@ -1,0 +1,265 @@
+{
+    "modifications":
+      [
+                    {
+                        "entityChanges": {
+                            "signatureOverrides": [
+                                {
+                                    "name": "XSS script tag (Parameter)",
+                                    "enabled": false,
+                                    "signatureId": 200000098
+                                }
+                            ],
+                            "type": "wildcard"
+                        },
+                        "entity": {
+                            "level": "global",
+                            "name": "*"
+                        },
+                        "entityType": "parameter",
+                        "action": "update-append",
+                        "description": "Disable the matched signature on the matched Parameter"
+                    },
+                    {
+                        "entityChanges": {
+                            "signatureOverrides": [
+                                {
+                                    "name": "XSS script tag end (Parameter) (2)",
+                                    "enabled": false,
+                                    "signatureId": 200001475
+                                }
+                            ],
+                            "type": "wildcard"
+                        },
+                        "entity": {
+                            "level": "global",
+                            "name": "*"
+                        },
+                        "entityType": "parameter",
+                        "action": "update-append",
+                        "description": "Disable the matched signature on the matched Parameter"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Directory traversals"
+                        },
+                        "entityType": "evasion",
+                        "action": "add-or-update",
+                        "description": "Enable Evasion Technique"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Check maximum number of parameters"
+                        },
+                        "entityType": "http-protocol",
+                        "action": "add-or-update",
+                        "description": "Enable HTTP Check"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "No Host header in HTTP/1.1 request"
+                        },
+                        "entityType": "http-protocol",
+                        "action": "add-or-update",
+                        "description": "Enable HTTP Check"
+                    },
+                    {
+                        "entityChanges": {
+                            "alarm": true,
+                            "block": true
+                        },
+                        "entity": {
+                            "name": "VIOL_REQUEST_MAX_LENGTH"
+                        },
+                        "entityType": "violation",
+                        "action": "add-or-update",
+                        "description": "Enable enforcement of policy violation"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Check maximum number of headers"
+                        },
+                        "entityType": "http-protocol",
+                        "action": "add-or-update",
+                        "description": "Enable HTTP Check"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Multiple decoding"
+                        },
+                        "entityType": "evasion",
+                        "action": "add-or-update",
+                        "description": "Enable Evasion Technique"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Bad multipart parameters parsing"
+                        },
+                        "entityType": "http-protocol",
+                        "action": "add-or-update",
+                        "description": "Enable HTTP Check"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Multiple host headers"
+                        },
+                        "entityType": "http-protocol",
+                        "action": "add-or-update",
+                        "description": "Enable HTTP Check"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Header name with no header value"
+                        },
+                        "entityType": "http-protocol",
+                        "action": "add-or-update",
+                        "description": "Enable HTTP Check"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Bad unescape"
+                        },
+                        "entityType": "evasion",
+                        "action": "add-or-update",
+                        "description": "Enable Evasion Technique"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Chunked request with Content-Length header"
+                        },
+                        "entityType": "http-protocol",
+                        "action": "add-or-update",
+                        "description": "Enable HTTP Check"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "%u decoding"
+                        },
+                        "entityType": "evasion",
+                        "action": "add-or-update",
+                        "description": "Enable Evasion Technique"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Bare byte decoding"
+                        },
+                        "entityType": "evasion",
+                        "action": "add-or-update",
+                        "description": "Enable Evasion Technique"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "CRLF characters before request start"
+                        },
+                        "entityType": "http-protocol",
+                        "action": "add-or-update",
+                        "description": "Enable HTTP Check"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "IIS Unicode codepoints"
+                        },
+                        "entityType": "evasion",
+                        "action": "add-or-update",
+                        "description": "Enable Evasion Technique"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Content length should be a positive number"
+                        },
+                        "entityType": "http-protocol",
+                        "action": "add-or-update",
+                        "description": "Enable HTTP Check"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Bad host header value"
+                        },
+                        "entityType": "http-protocol",
+                        "action": "add-or-update",
+                        "description": "Enable HTTP Check"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Several Content-Length headers"
+                        },
+                        "entityType": "http-protocol",
+                        "action": "add-or-update",
+                        "description": "Enable HTTP Check"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "Apache whitespace"
+                        },
+                        "entityType": "evasion",
+                        "action": "add-or-update",
+                        "description": "Enable Evasion Technique"
+                    },
+                    {
+                        "entityChanges": {
+                            "enabled": true
+                        },
+                        "entity": {
+                            "description": "IIS backslashes"
+                        },
+                        "entityType": "evasion",
+                        "action": "add-or-update",
+                        "description": "Enable Evasion Technique"
+                    }
+                ]  
+
+}
