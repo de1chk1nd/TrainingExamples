@@ -32,7 +32,7 @@
             }
         ]
     },
-    "modificationsReference": {
-         "link": "https://raw.githubusercontent.com/de1chk1nd/TrainingExamples/main/DeclarativeWAF/App1%20-%20WAF/modifications.txt"
+    "modificationsReference":{
+        "link":"file://my_modifications.json"
     }
 }
