@@ -1,0 +1,14 @@
+[
+            {
+              "name": "/1",
+              "isAllowed": false
+            },
+            {
+              "name": "/2",
+              "isAllowed": false
+            },
+                        {
+              "name": "/3",
+              "isAllowed": false
+            }
+          ]
