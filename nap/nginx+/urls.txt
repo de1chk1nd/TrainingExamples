@@ -10,5 +10,9 @@
             {
               "name": "/3",
               "isAllowed": false
+            },
+            {
+              "name": "/4",
+              "isAllowed": false
             }
           ]
