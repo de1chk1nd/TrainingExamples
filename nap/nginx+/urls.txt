@@ -15,4 +15,4 @@
               "name": "/4",
               "isAllowed": false
             }
-          ]
+]
