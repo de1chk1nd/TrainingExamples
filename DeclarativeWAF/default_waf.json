@@ -1,0 +1,20 @@
+{
+   "policy" : {
+      "applicationLanguage" : "utf-8",
+      "caseInsensitive" : false,
+      "description" : "Rapid Deployment Policy",
+      "enablePassiveMode" : false,
+      "enforcementMode" : "blocking",
+      "fullPath" : "/Common/default_waf",
+      "name" : "default_waf",
+      "protocolIndependent" : false,
+      "signature-settings" : {
+         "signatureStaging" : false
+      },
+      "softwareVersion" : "16.1.3",
+      "template" : {
+         "name" : "POLICY_TEMPLATE_RAPID_DEPLOYMENT"
+      },
+      "type" : "security"
+   }
+}
