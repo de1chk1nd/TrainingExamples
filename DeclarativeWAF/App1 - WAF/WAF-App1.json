@@ -22,6 +22,7 @@
         },
         "policy-builder": {
             "learnOnlyFromNonBotTraffic": false
-        },
-        "modifications": [  ]
+        }
+    },
+    "modifications": [  ]
 }
