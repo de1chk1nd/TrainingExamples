@@ -33,7 +33,45 @@
         ]
     },
     "modifications": [ 
+            {
+            "entityChanges": {
+              "signatureOverrides": [
+                {
+                  "name": "XSS script tag (Parameter)",
+                  "enabled": false,
+                  "signatureId": 200000098
+                }
+              ],
+              "type": "wildcard"
+            },
+            "entity": {
+              "level": "global",
+              "name": "*"
+            },
+            "entityType": "parameter",
+            "action": "update-append",
+            "description": "Disable the matched signature on the matched Parameter"
+          },
           {
+            "entityChanges": {
+              "signatureOverrides": [
+                {
+                  "name": "XSS script tag end (Parameter) (2)",
+                  "enabled": false,
+                  "signatureId": 200001475
+                }
+              ],
+              "type": "wildcard"
+            },
+            "entity": {
+              "level": "global",
+              "name": "*"
+            },
+            "entityType": "parameter",
+            "action": "update-append",
+            "description": "Disable the matched signature on the matched Parameter"
+          },
+            {
             "entityChanges": {
               "enabled": true
             },
